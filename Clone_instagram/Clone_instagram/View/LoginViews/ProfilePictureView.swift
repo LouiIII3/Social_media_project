@@ -12,6 +12,8 @@ struct ProfilePictureView: View {
     @EnvironmentObject var register: RegisterViewModel
     @State private var user = ""
     @State private var addPicture = false
+    @State private var text = ""
+    @State private var result = false
     @Binding var path: [String]
 
     var buttonHeight: CGFloat = 40
@@ -56,11 +58,16 @@ struct ProfilePictureView: View {
                 Button(action: {
                     print("\(path.count)가 삭제하기 전")
                     Task {
-                        await register.register { t in
-                            
+                        await register.register { result, text  in
+                            if result {
+                                path.removeLast(path.count)
+                            } else {
+                                self.text = text!
+                                self.result.toggle()
+                            }
                         }
                         
-                        path.removeLast(path.count)
+                        
                     }
                     print("\(path.count)가 삭제한 후")
                 }, label: {
@@ -69,7 +76,11 @@ struct ProfilePictureView: View {
                         .frame(height: 40)
                 })
                 .buttonStyle(customButtonStyle(labelColor: Color.defaultText, backgroundColor: Color.clear, borderColor: Color.accentColor))
-                
+                .alert("회원가입 실패", isPresented: $result) {
+                    Button("확인", role: .cancel) {}
+                } message: {
+                    Text(text)
+                }
                 
             } //VSTACK
         } //ZSTACK

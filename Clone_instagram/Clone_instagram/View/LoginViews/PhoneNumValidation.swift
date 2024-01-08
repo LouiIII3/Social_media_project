@@ -66,7 +66,7 @@ struct PhoneNumValidation: View {
                 
                 Spacer()
             } //VSTACK
-            .onChange(of: phoneNumber) {
+            .onChange(of: verifiedCode) {
                 register.model.key1 = verifiedCode
             }
         } //ZSTACK
