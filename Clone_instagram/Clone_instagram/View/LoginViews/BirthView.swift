@@ -29,7 +29,7 @@ struct BirthView: View {
     // 텍스트 필드에 들어갈 텍스트를 DateFormatter 변환
     private func dateFormat(date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy / MM / dd"
+        formatter.dateFormat = "yyyy-mm-dd"
         
         return formatter.string(from: date)
     }
@@ -68,6 +68,9 @@ struct BirthView: View {
                 .buttonStyle(customButtonStyle(labelColor: Color.white, backgroundColor: Color.accentColor, borderColor: Color.accentColor))
                 .navigationDestination(isPresented: $pressed) {
                     UserNameView(path: $path)
+                }
+                .onChange(of: currentDate) {
+//                    register.model.birthdate = dateFormat(date: currentDate)
                 }
                 
                 

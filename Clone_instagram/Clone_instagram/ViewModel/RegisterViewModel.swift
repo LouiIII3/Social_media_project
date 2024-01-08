@@ -11,8 +11,9 @@ import SwiftUI
 class RegisterViewModel: ObservableObject {
     var model = RegisterModel.init(userid: "", password: "", birthdate: Date().description, fullName: "", key1: "0")
     
-    func register(completion: @escaping (RegisterResponseDTD) -> Void) async {
+    func register(completion: @escaping (Bool) -> Void) async {
         let registerData = ["userid": model.userid, "password": model.password, "key1":model.key1, "birthdate": model.birthdate, "fullName":model.fullName,"profilePictureUrl": model.profilePictureUrl]
+        print(model.birthdate)
         do {
             var request = URLRequest(url: Constants().registerPath!)
             request.httpMethod = "POST"
@@ -27,8 +28,9 @@ class RegisterViewModel: ObservableObject {
             let (data, _) = try await session.data(for: request)
             
             do {
-                let result = try JSONDecoder().decode(RegisterResponseDTD.self, from: data)
-                completion(result)
+//                let result = try JSONDecoder().decode(String.self, from: data)
+                print(data.description)
+                completion(true)
 //                return result
             } catch let decodingError as DecodingError {
                 switch decodingError {
@@ -47,7 +49,8 @@ class RegisterViewModel: ObservableObject {
             throw NetworkError.decodingError
         } catch {
             print("에러 \(error)")
-            completion(RegisterResponseDTD(error: true, reason: "네트워크에러"))
+            completion(false)
+//            completion(RegisterResponseDTD(error: true, reason: "네트워크에러"))
 //            return RegisterResponseDTD(error: false, reason: error.localizedDescription)
         }
     }
