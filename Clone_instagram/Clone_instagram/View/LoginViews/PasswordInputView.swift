@@ -62,6 +62,9 @@ struct PasswordInputView: View {
                     Text("Button")
                 })
             } //VSTACK
+            .onChange(of: password) {
+                register.model.password = password
+            }
         } //ZSTACK
         
     }

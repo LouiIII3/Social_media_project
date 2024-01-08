@@ -15,7 +15,7 @@ struct ProfilePictureView: View {
     @Binding var path: [String]
 
     var buttonHeight: CGFloat = 40
-    var model = RegisterViewModel()
+//    var model = RegisterViewModel()
     
     var body: some View {
         ZStack {
@@ -56,7 +56,7 @@ struct ProfilePictureView: View {
                 Button(action: {
                     print("\(path.count)가 삭제하기 전")
                     Task {
-                        await model.register { t in
+                        await register.register { t in
                             
                         }
                         

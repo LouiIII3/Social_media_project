@@ -60,6 +60,9 @@ struct NameInputView: View {
                     Text("Button")
                 })
             } //VSTACK
+            .onChange(of: username) {
+                register.model.nickname = username
+            }
         } //ZSTACK
         
     }

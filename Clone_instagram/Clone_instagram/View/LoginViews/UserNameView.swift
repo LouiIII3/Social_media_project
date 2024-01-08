@@ -56,6 +56,9 @@ struct UserNameView: View {
                 Spacer()
             } //VSTACK
         } //ZSTACK
+        .onChange(of: userid) {
+            register.model.userid = userid
+        }
     }
 }
 

@@ -8,11 +8,11 @@
 import SwiftUI
 
 
-let dateformat: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "YYYY년 M월 d일"
-    return formatter
-}()
+//let dateformat: DateFormatter = {
+//    let formatter = DateFormatter()
+//    formatter.dateFormat = "YYYY년 M월 d일"
+//    return formatter
+//}()
 
 struct BirthView: View {
     
@@ -29,7 +29,7 @@ struct BirthView: View {
     // 텍스트 필드에 들어갈 텍스트를 DateFormatter 변환
     private func dateFormat(date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         
         return formatter.string(from: date)
     }
@@ -70,7 +70,8 @@ struct BirthView: View {
                     UserNameView(path: $path)
                 }
                 .onChange(of: currentDate) {
-//                    register.model.birthdate = dateFormat(date: currentDate)
+                    register.model.birthdate = dateFormat(date: currentDate)
+                    print(register.model.birthdate)
                 }
                 
                 

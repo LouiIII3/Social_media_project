@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhoneNumValidation: View {
     @EnvironmentObject var register: RegisterViewModel
-    @State private var user = ""
+    @State private var verifiedCode = ""
     @State private var pressed = false
     @Binding var phoneNumber: String
     @Binding var path: [String]
@@ -34,7 +34,7 @@ struct PhoneNumValidation: View {
                     Spacer()
                 }.padding(.horizontal)
                 
-                TextField("휴대폰 번호", text: $user)
+                TextField("휴대폰 번호", text: $verifiedCode)
                     .modifier(customTextFieldModifier(roundedCorners: 15, textColor: .defaultText))
                     .keyboardType(.phonePad)
                     .frame(maxWidth: .infinity)
@@ -66,6 +66,9 @@ struct PhoneNumValidation: View {
                 
                 Spacer()
             } //VSTACK
+            .onChange(of: phoneNumber) {
+                register.model.key1 = verifiedCode
+            }
         } //ZSTACK
     }
 }
