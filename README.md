@@ -1,6 +1,6 @@
 # Social_media_project
 
-1. ui(desgin):
+1. UI(desgin):
   - 
   - 
   - 
