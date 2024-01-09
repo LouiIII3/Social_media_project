@@ -11,7 +11,7 @@ struct NameInputView: View {
     
     @EnvironmentObject var register: RegisterViewModel
 
-    @State private var username = ""
+    @State private var userid = ""
     @State private var pressed = false
     @Binding var path: [String]
 
@@ -36,7 +36,7 @@ struct NameInputView: View {
                     Spacer()
                 }.padding(.horizontal)
                 
-                TextField("성명", text: $username)
+                TextField("성명", text: $userid)
                     .modifier(customTextFieldModifier(roundedCorners: 15, textColor: .defaultText))
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal)
@@ -60,8 +60,8 @@ struct NameInputView: View {
                     Text("Button")
                 })
             } //VSTACK
-            .onChange(of: username) {
-                register.model.nickname = username
+            .onChange(of: userid) {
+                register.model.nickname = userid
             }
         } //ZSTACK
         

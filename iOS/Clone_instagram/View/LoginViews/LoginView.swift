@@ -88,11 +88,15 @@ struct LoginView: View {
                     
                     Button(action: { 
                         model.login(userid: id, password: password) { result in
-                            if result {
+                            print("check1")
+                            if result { // 성공한 것
+                                print("성공")
                                 isLogged.isLogged = true
                             } else {
+                                print("실패")
                                 errorPressed.toggle()
                             }
+                            print("check2")
                         }
                          }, label: {
                         Text("로그인")

@@ -23,10 +23,8 @@ class LoginViewModel {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONEncoder().encode(loginData)
-        print("여기도 무효0")
-        
+
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print("여기도 무효1")
             guard let data = data, error == nil else {
                 completion(false)
                 print("데이터 무효")
@@ -38,29 +36,36 @@ class LoginViewModel {
                 print("토큰 무효")
                 return
             }
+            if token == "로그인 실패" {
+                completion(false)
+                print("로그인 실패하였음")
+                return
+            }
             print("토큰값: \(token)")
-            let credentials = Credentials(username: self.model.userid, psssword: self.model.password, token: token)
+            let credentials = Credentials(username: userid, psssword: password, token: token)
+            
             Task {
                 if try KeyChain.CheckToken() {
                     try KeyChain.update(credentials: credentials)
+                    completion(true)
                 } else {
                     try KeyChain.save(credentials: credentials)
+                    completion(true)
                 }
-                completion(true)
             }
+            print("33333")
             
         }.resume()
     }
     func Relogin(completion: @escaping (Bool) -> Void) {
         do {
             let credentials = try KeyChain.get()
-            let loginData = ["username": credentials.username, "password": credentials.psssword]
-            var request = URLRequest(url: URL(string: "")!)
+            let loginData = ["userid": credentials.username, "password": credentials.psssword]
+            var request = URLRequest(url: Constants().loginPath!)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = try? JSONEncoder().encode(loginData)
             URLSession.shared.dataTask(with: request) { data, response, error in
-                print("여기도 무효1")
                 guard let data = data, error == nil else {
                     completion(false)
                     print("데이터 무효")

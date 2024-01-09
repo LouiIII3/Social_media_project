@@ -5,11 +5,6 @@
 //  Created by Taewon Yoon on 11/16/23.
 //
 
-// {
-//"sub": "1111111111",
-//"iat": 1700232055,
-//"exp": 1700232175
-//}
 import Foundation
 import SwiftUI
 
@@ -71,11 +66,14 @@ class KeyChain {
         guard status == errSecSuccess else { throw
             KeychainError.unhandledError(status: status)
         }
+        print("KeyChain1")
         let decoder = JSONDecoder()
         guard let existingItem = item as? [String : Any] else {
             throw KeychainError.unexpectedPasswordData
         }
+        print("KeyChain2")
         let decoded = try decoder.decode(Credentials.self, from: (existingItem[kSecValueData as String] as? Data)!)
+        print("KeyChain3")
         print("불러오기 성공 password: \(decoded.psssword), account: \(decoded.username), token: \(decoded.token)")
         return Credentials(username: decoded.username, psssword: decoded.psssword, token: decoded.token)
     }
@@ -102,7 +100,9 @@ class KeyChain {
         
         print("업데이트할 유저이름:\(credentials.username), 유저토큰:\(credentials.token), 유저비밀번호:\(credentials.psssword)")
         let encoder = JSONEncoder()
+        print("111")
         let data = try encoder.encode(credentials)
+        
         let attributes: [String: Any] = [kSecAttrAccount as String: credentials.username,
                                          kSecValueData as String: data]
         

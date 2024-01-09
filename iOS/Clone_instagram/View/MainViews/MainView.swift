@@ -38,8 +38,6 @@ struct MainView: View {
                             }
                     }.tag(3)
                     
-                    
-                    
                     ReelsView()
                         .tabItem {
                             Image(systemName: "play.rectangle")
@@ -56,9 +54,6 @@ struct MainView: View {
                 .overlay(alignment: .bottom, content: {
                     Image(systemName: "plus.square")
                 })
-                //                .navigationDestination(isPresented: $pressed) {
-                //                    SelectingImage(path: $path)
-                //                }
                 .navigationDestination(for: String.self) { _ in
                     SelectingImage(path: $path)
                 }
@@ -77,6 +72,12 @@ struct MainView: View {
             .onChange(of: path) {
                 pressed.toggle()
             }
+            .onAppear {
+                Task {
+                    let credential = try KeyChain.get()
+                    print(credential)
+                }
+            } //NAVIGATION
         })
     }
 }

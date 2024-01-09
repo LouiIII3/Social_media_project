@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct Clone_instagramApp: App {
-    //    @State private var path = RegisterNavigationPath()
+    @Environment(\.scenePhase) var scenePhase
     @State private var credentials: Credentials?
     @StateObject var isLogged = LoginStatus()
-    @StateObject var registerPath: RegisterNavigationPath = RegisterNavigationPath()
+    @StateObject var userinfo = RegisterViewModel()
     var loginmodel = LoginViewModel()
     
     //MARK: FUNC
@@ -55,14 +55,23 @@ struct Clone_instagramApp: App {
     var body: some Scene {
         WindowGroup {
             if let views = isLogged.isLogged {
-                MainView()
-            } else {
-                LoginView()
-                    .environmentObject(RegisterViewModel())
-                //                        .environmentObject(registerPath)
+                if views {
+                    MainView()
+                } else {
+                    LoginView()
+                        
+                }
             }
         }
         .environmentObject(isLogged)
-        .environmentObject(registerPath)
+        .environmentObject(userinfo)
+        .onChange(of: scenePhase) {
+            attemptAutoLogin()
+//            do {
+//                try KeyChain.delete()
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+        }
     }
 }
