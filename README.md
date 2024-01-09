@@ -17,7 +17,7 @@
 <br>
 <h2>technology used</h2>
 
-- Swift: 
+- SwiftUI: 
 
 - Springboot: 
   
