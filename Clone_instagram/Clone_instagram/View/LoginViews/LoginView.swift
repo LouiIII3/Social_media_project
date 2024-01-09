@@ -87,11 +87,11 @@ struct LoginView: View {
                         .padding(.horizontal)
                     
                     Button(action: { 
-                        model.login { result in
+                        model.login(userid: id, password: password) { result in
                             if result {
-                                errorPressed.toggle()
-                            } else {
                                 isLogged.isLogged = true
+                            } else {
+                                errorPressed.toggle()
                             }
                         }
                          }, label: {

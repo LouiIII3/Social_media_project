@@ -11,4 +11,5 @@ struct Constants {
     private static let baseUrlPath = "http://lsproject.shop"
     
     var registerPath = URL(string: baseUrlPath + "/register")
+    var loginPath = URL(string: baseUrlPath + "/login")
 }

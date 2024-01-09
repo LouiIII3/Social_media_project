@@ -16,9 +16,10 @@ class LoginViewModel {
     
     let httpClient = HTTPClient()
     // 여기서 토큰 체크하고 갱신한다
-    func login(completion: @escaping (Bool) -> Void) {
-        let loginData = ["username": model.userid, "password": model.password]
-        var request = URLRequest(url: Constants().registerPath!)
+    func login(userid: String, password: String, completion: @escaping (Bool) -> Void) {
+        let loginData = ["userid": userid, "password": password]
+        print(loginData)
+        var request = URLRequest(url: Constants().loginPath!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONEncoder().encode(loginData)
@@ -40,7 +41,11 @@ class LoginViewModel {
             print("토큰값: \(token)")
             let credentials = Credentials(username: self.model.userid, psssword: self.model.password, token: token)
             Task {
-                try KeyChain.save(credentials: credentials)
+                if try KeyChain.CheckToken() {
+                    try KeyChain.update(credentials: credentials)
+                } else {
+                    try KeyChain.save(credentials: credentials)
+                }
                 completion(true)
             }
             
