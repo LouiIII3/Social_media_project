@@ -59,7 +59,7 @@ struct Clone_instagramApp: App {
                     MainView()
                 } else {
                     LoginView()
-                        
+                    
                 }
             }
         }
