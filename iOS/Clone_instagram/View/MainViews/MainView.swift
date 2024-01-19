@@ -31,12 +31,17 @@ struct MainView: View {
                         .tag(2)
                     
                     
-                    NavigationLink(value: "1") {
-                        Text("1")
-                            .tabItem {
-                                Image(systemName: "plus.square")
-                            }
-                    }.tag(3)
+//                    NavigationLink(value: "1") {
+//                        Text("1")
+//                            .tabItem {
+//                                Image(systemName: "plus.square")
+//                            }
+//                    }.tag(3)
+                    
+                    Text("")
+                        .tabItem {
+                            Image(systemName: "plus.square")
+                        }.tag(3)
                     
                     ReelsView()
                         .tabItem {
@@ -51,9 +56,9 @@ struct MainView: View {
                         .tag(5)
                     
                 }
-                .overlay(alignment: .bottom, content: {
-                    Image(systemName: "plus.square")
-                })
+//                .overlay(alignment: .bottom, content: {
+//                    Image(systemName: "plus.square")
+//                })
                 .navigationDestination(for: String.self) { _ in
                     SelectingImage(path: $path)
                 }
