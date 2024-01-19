@@ -11,9 +11,10 @@ struct MainView: View {
     @State private var pressed = false
     @State private var tabselection = 0
     @State private var path: [String] = []
+    @State private var plusPressed = false
+    @State private var linePressed = false
     var body: some View {
         
-        GeometryReader(content: { geometry in
             NavigationStack(path: $path) {
                 
                 TabView(selection: $tabselection) {
@@ -29,7 +30,6 @@ struct MainView: View {
                             Image(systemName: "magnifyingglass")
                         }.toolbarBackground(Color.tabBar, for: .tabBar)
                         .tag(2)
-                    
                     
                     Text("")
                         .tabItem {
@@ -47,18 +47,14 @@ struct MainView: View {
                             Image(systemName: "person.circle")
                         }.toolbarBackground(Color.tabBar, for: .tabBar)
                         .tag(5)
+
                     
                 }
-//                .overlay(alignment: .bottom, content: {
-//                    Image(systemName: "plus.square")
-//                })
                 .navigationDestination(for: String.self) { _ in
                     SelectingImage(path: $path)
                 }
                 
-                
-                
-            }
+            }//NAVIGATION
             .onChange(of: tabselection) {
                 if tabselection == 3 {
                     tabselection = 1
@@ -75,8 +71,7 @@ struct MainView: View {
                     let credential = try KeyChain.get()
                     print(credential)
                 }
-            } //NAVIGATION
-        })
+            }
     }
 }
 

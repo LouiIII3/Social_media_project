@@ -101,48 +101,51 @@ struct SelectingImage: View {
     
     var body: some View {
         GeometryReader(content: { geometry in
-            VStack {
-                
-                Image(uiImage: picture)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: geometry.size.height/2)
-                    .offset(x: offset.width, y: offset.height)
-                    .scaleEffect(scale)
-                
-                Spacer()
-                
+            NavigationStack(path: $path) {
                 VStack {
-                    PhotosPicker(selection: $selected, matching: .images, photoLibrary: .shared()) { Text("Select a photo") }
-                        .interactiveDismissDisabled()
-                        .photosPickerStyle(.inline)
-                        .photosPickerDisabledCapabilities(.sensitivityAnalysisIntervention)
-                        .photosPickerAccessoryVisibility(.hidden)
-                }
-            }
-            .onAppear(perform: {
-                loadFirstPhoto()
-            })
-            .onChange(of: selected, initial: false) { old, item in
-                Task(priority: .background) {
-                    if let data = try? await item?.loadTransferable(type: Data.self) {
-                        resetScale()
-                        picture = UIImage(data: data)!
-                    }
-                }
-            }
-            .navigationTitle("새 게시물")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink {
-                        PostingView(selected: $picture, path: $path)
-                    } label: {
-                        Text("다음")
-                    }
                     
+                    Image(uiImage: picture)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: geometry.size.height/2)
+                        .offset(x: offset.width, y: offset.height)
+                        .scaleEffect(scale)
+                    
+                    Spacer()
+                    
+                    VStack {
+                        PhotosPicker(selection: $selected, matching: .images, photoLibrary: .shared()) { Text("Select a photo") }
+                            .interactiveDismissDisabled()
+                            .photosPickerStyle(.inline)
+                            .photosPickerDisabledCapabilities(.sensitivityAnalysisIntervention)
+                            .photosPickerAccessoryVisibility(.hidden)
+                    }
+                }
+                .onAppear(perform: {
+                    loadFirstPhoto()
+                })
+                .onChange(of: selected, initial: false) { old, item in
+                    Task(priority: .background) {
+                        if let data = try? await item?.loadTransferable(type: Data.self) {
+                            resetScale()
+                            picture = UIImage(data: data)!
+                        }
+                    }
+                }
+                .navigationTitle("새 게시물")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            PostingView(selected: $picture, path: $path)
+                        } label: {
+                            Text("다음")
+                        }
+                        
+                    }
                 }
             }
+            
         })
     }
 }
@@ -157,7 +160,7 @@ struct SelectingImage: View {
 //
 //
 //struct SelectingImage: View {
-//    
+//
 //    @Environment(\.dismiss) var dismiss
 //    @State private var selected: PhotosPickerItem?
 //    @State private var firstPhoto: UIImage?
@@ -169,7 +172,7 @@ struct SelectingImage: View {
 //    @State private var lastScale: CGFloat = 1.0
 //    @State private var imageOffset: CGSize = .zero
 //    @GestureState private var magnifyBy = 1.0
-//    
+//
 //    var magnification: some Gesture {
 //        MagnifyGesture(minimumScaleDelta: 0)
 //            .onChanged({ value in
@@ -186,7 +189,7 @@ struct SelectingImage: View {
 //                lastScale = scale
 //            }
 //    }
-//    
+//
 //    var drag: some Gesture {
 //        DragGesture()
 //            .onChanged({ value in
@@ -201,19 +204,19 @@ struct SelectingImage: View {
 //                lastOffset = offset
 //            })
 //    }
-//    
+//
 //    //MARK: FUNC
-//    
+//
 //    func loadFirstPhoto() {
 //        // 앨범에서 이미지 가져오기
 //        let fetchOptions = PHFetchOptions()
 //        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
 //        let result = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-//        
+//
 //        if let firstAsset = result.firstObject {
 //            let imageManager = PHImageManager.default()
 //            let targetSize = CGSize(width: 1000, height: 1000)
-//            
+//
 //            imageManager.requestImage(for: firstAsset,
 //                                      targetSize: targetSize,
 //                                      contentMode: .aspectFill,
@@ -231,20 +234,20 @@ struct SelectingImage: View {
 //            print("No images found in the album")
 //        }
 //    }
-//    
+//
 //    private func handleScaleChange(_ zoom: CGFloat) -> CGFloat {
 //        lastScale + zoom - (lastScale == 0 ? 0 : 1)
 //    }
-//    
+//
 //    private func handleOffsetChange(_ offset: CGSize) -> CGSize {
 //        var newOffset: CGSize = .zero
-//        
+//
 //        newOffset.width = offset.width + lastOffset.width
 //        newOffset.height = offset.height + lastOffset.height
-//        
+//
 //        return newOffset
 //    }
-//    
+//
 //    func resetScale() {
 //        print("초기화")
 //        scale = 1.0
@@ -253,11 +256,11 @@ struct SelectingImage: View {
 //        lastOffset = .zero
 //        imageOffset = .zero
 //    }
-//    
-//    
-//    
+//
+//
+//
 //    var body: some View {
-//        
+//
 //        VStack {
 //            GeometryReader(content: { geometry in
 //                Image(uiImage: picture)
@@ -271,10 +274,10 @@ struct SelectingImage: View {
 ////                        imageOffset.height = geometry.size.height// / 3
 ////                    })
 //            })
-//            
-//            
+//
+//
 //            Spacer()
-//            
+//
 //            VStack {
 //                PhotosPicker(selection: $selected, matching: .images, photoLibrary: .shared()) { Text("Select a photo") }
 //                    .interactiveDismissDisabled()
@@ -303,7 +306,7 @@ struct SelectingImage: View {
 //                } label: {
 //                    Text("다음")
 //                }
-//                
+//
 //            }
 //        }
 //    }
