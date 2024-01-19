@@ -31,13 +31,6 @@ struct MainView: View {
                         .tag(2)
                     
                     
-//                    NavigationLink(value: "1") {
-//                        Text("1")
-//                            .tabItem {
-//                                Image(systemName: "plus.square")
-//                            }
-//                    }.tag(3)
-                    
                     Text("")
                         .tabItem {
                             Image(systemName: "plus.square")
