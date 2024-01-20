@@ -7,62 +7,6 @@
 
 import SwiftUI
 
-struct LineMenuView: View {
-    let symbols = [["gearshape.fill", "설정 및 개인정보"], ["character.magnify", "Treads"],["timer","내 활동"], ["clock.arrow.circlepath", "보관"], ["qrcode.viewfinder", "QR 코드"], ["bookmark.fill", "저장됨"], ["person.2", "관리 감독"], ["checkmark.seal", "MetaVerified"], ["list.star", "친한 친구"], ["star", "즐겨찾기"]]
-    
-    var body: some View {
-        VStack {
-            ForEach(symbols, id: \.self[0]) { symbol in
-                HStack {
-                    Image(systemName: symbol[0])
-                        .foregroundColor(.blue)
-                        .imageScale(.large)
-                    Text(symbol[1])
-                        .foregroundColor(Color.defaultText)
-                    Spacer()
-                }.padding(.horizontal)
-                
-                Divider()
-            }
-        }
-    }
-}
-
-#Preview {
-    LineMenuView()
-}
-
-struct PlusMenuView: View {
-    let symbols = [["play.rectangle.fill", "릴스"], ["squareshape.split.3x3", "게시물"]]
-    var body: some View {
-        VStack {
-            Text("만들기")
-                .padding(.top)
-            
-            Divider()
-            
-            ForEach(symbols, id: \.self[0]) { symbol in
-                HStack {
-                    Image(systemName: symbol[0])
-                        .foregroundColor(.blue)
-                        .imageScale(.large)
-                    Text(symbol[1])
-                        .foregroundColor(Color.defaultText)
-                    Spacer()
-                }.padding(.horizontal)
-                
-                Divider()
-            }
-            Spacer()
-        }
-        
-    }
-}
-
-#Preview {
-    PlusMenuView()
-}
-
 struct ProfileView: View {
     @State private var plusPressed = false
     @State private var linePressed = false
@@ -70,29 +14,14 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        plusPressed.toggle()
-                    }, label: {
-                        Image(systemName: "plus.app")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            
-                    }).padding(.trailing, 15)
-                    Button(action: {
-                        linePressed.toggle()
-                    }, label: {
-                        Image(systemName: "line.horizontal.3")
-                            .resizable()
-                            .frame(width: 20, height: 15)
-                    })
-                }.padding()
+                ProfileNavigationBarView(plusPressed: $plusPressed, linePressed: $linePressed)
+                ProfileHeaderView()
+                ProfileControlButtonsView()
+                ProfileMediaSelectionView()
                 Spacer()
-                
             }
             .sheet(isPresented: $linePressed, content: {
-                LineMenuView()
+                LineMenuView(path: $path)
                     .presentationDetents([.fraction(0.7)])
                     .presentationDragIndicator(.visible)
             })
@@ -101,6 +30,11 @@ struct ProfileView: View {
                     .presentationDetents([.fraction(0.4)])
                     .presentationDragIndicator(.visible)
             })
+            .navigationDestination(for: String.self) { str in
+                if str == "설정 및 개인정보" {
+                    SettingPrivacyView()
+                }
+            }
         }
     }
 }
