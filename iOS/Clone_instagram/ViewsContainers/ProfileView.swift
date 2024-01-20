@@ -32,7 +32,7 @@ struct ProfileView: View {
             })
             .navigationDestination(for: String.self) { str in
                 if str == "설정 및 개인정보" {
-                    SettingPrivacyView()
+                    SettingsPrivacyView()
                 }
             }
         }
