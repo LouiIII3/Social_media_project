@@ -1,0 +1,26 @@
+package com.example.social.controller;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@AllArgsConstructor
+@ToString
+@Entity
+@Data
+//데이터 베이스에서 검색하여 엔티티 객체를 생성하기 위해 기본생성자를 생성해야한다.
+@NoArgsConstructor
+public class Article {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long ID;
+
+    @Column
+    private String title;
+
+    @Column
+    private String contents;
+
+}
