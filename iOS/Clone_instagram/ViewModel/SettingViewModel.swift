@@ -74,6 +74,11 @@ let settings10: Array<SettingViewModel> = [
     SettingViewModel(imageName: "info.circle", buttonText: "정보")
 ]
 
+let settings11: Array<SettingViewModel> = [
+    SettingViewModel(imageName: "", buttonText: "계정 추가"),
+    SettingViewModel(imageName: "", buttonText: "로그아웃"),
+]
+
 //let settings: Array<SettingViewModel> = [
 //    SettingViewModel(imageName: "chart.bar.xaxis", buttonText: "계정 유형 및 도구"),
 //    SettingViewModel(imageName: "list.dash.header.rectangle", buttonText: "주문 및 결제"),

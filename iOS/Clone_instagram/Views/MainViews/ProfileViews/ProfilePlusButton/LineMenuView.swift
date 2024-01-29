@@ -40,11 +40,6 @@ struct LineMenuView: View {
                         Divider()
                     }
                 }.padding().padding([.top], 5)
-//                .navigationDestination(for: String.self) { str in
-//                    if str == "설정 및 개인정보" {
-//                        SettingPrivacyView()
-//                    }
-//                }
             })
         }
 
