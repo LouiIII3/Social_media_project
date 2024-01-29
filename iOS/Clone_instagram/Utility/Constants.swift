@@ -12,4 +12,5 @@ struct Constants {
     
     var registerPath = URL(string: baseUrlPath + "/register")
     var loginPath = URL(string: baseUrlPath + "/login")
+    var postingPath = URL(string: baseUrlPath + "/posting")
 }

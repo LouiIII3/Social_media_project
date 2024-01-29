@@ -14,6 +14,8 @@ struct PostingView: View {
     @State var textfield: String = ""
     @Binding var path: [String]
     
+    var model = PostingViewModel()
+    
     var body: some View {
         GeometryReader(content: { geometry in
             VStack {
@@ -44,9 +46,8 @@ struct PostingView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        print("없애기전: \(path.count)")
-                        path.removeAll()
-                        print("없앤후: \(path.count)")
+                        model.send(image: selected, text: textfield)// 이미지와 글 전송
+                        path.removeAll() // 처음으로 돌아가기
                     }, label: {
                         Text("공유")
                             .foregroundStyle(Color.accentColor)

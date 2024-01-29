@@ -21,6 +21,8 @@
 		2B553F1A2B3F12470095F66E /* RegisterResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B553F192B3F12470095F66E /* RegisterResponseDTO.swift */; };
 		2B553F1D2B3F13660095F66E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B553F1C2B3F13660095F66E /* Constants.swift */; };
 		2B553F1F2B3F189B0095F66E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B553F1E2B3F189B0095F66E /* LoginViewModel.swift */; };
+		2B5795F22B6798830013568F /* PostingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5795F12B6798830013568F /* PostingViewModel.swift */; };
+		2B5795F42B6799D70013568F /* PostingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5795F32B6799D70013568F /* PostingModel.swift */; };
 		2B646C7C2B485B5600477C9C /* SelectingImageTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B646C7B2B485B5600477C9C /* SelectingImageTab.swift */; };
 		2B646CB52B4A7BE200477C9C /* LoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B646CB42B4A7BE200477C9C /* LoginResponseDTO.swift */; };
 		2B8F91C62B2A14100015A6D8 /* Clone_instagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F91C52B2A14100015A6D8 /* Clone_instagramApp.swift */; };
@@ -95,6 +97,8 @@
 		2B553F192B3F12470095F66E /* RegisterResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponseDTO.swift; sourceTree = "<group>"; };
 		2B553F1C2B3F13660095F66E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B553F1E2B3F189B0095F66E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2B5795F12B6798830013568F /* PostingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingViewModel.swift; sourceTree = "<group>"; };
+		2B5795F32B6799D70013568F /* PostingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingModel.swift; sourceTree = "<group>"; };
 		2B646C7B2B485B5600477C9C /* SelectingImageTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingImageTab.swift; sourceTree = "<group>"; };
 		2B646CB42B4A7BE200477C9C /* LoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDTO.swift; sourceTree = "<group>"; };
 		2B8F91C22B2A14100015A6D8 /* Clone_instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clone_instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +311,7 @@
 				2BD0A5672B2F4F4700C478FB /* LoginModel.swift */,
 				2BD0A5692B2F4F6200C478FB /* RegisterModel.swift */,
 				2BAAC1872B355378006651E5 /* PhotoModel.swift */,
+				2B5795F32B6799D70013568F /* PostingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				2B4255E82B3E9D7D00A7A66F /* RegisterViewModel.swift */,
 				2B553F1E2B3F189B0095F66E /* LoginViewModel.swift */,
 				2BBD3C022B5BA13800264256 /* SettingViewModel.swift */,
+				2B5795F12B6798830013568F /* PostingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				2B646C7C2B485B5600477C9C /* SelectingImageTab.swift in Sources */,
 				2B553F1F2B3F189B0095F66E /* LoginViewModel.swift in Sources */,
 				2B8F91F92B2B1DD70015A6D8 /* PostringFooter.swift in Sources */,
+				2B5795F42B6799D70013568F /* PostingModel.swift in Sources */,
 				2BF873AF2B318DED00565F9D /* MainView.swift in Sources */,
 				2BBD3C012B5B9FD200264256 /* SettingsButton.swift in Sources */,
 				2BBD3BF12B5AC01400264256 /* ProfileHeaderView.swift in Sources */,
@@ -555,6 +562,7 @@
 				2BD0A5642B2F246C00C478FB /* PhoneNumValidation.swift in Sources */,
 				2B553F172B3F0BED0095F66E /* KeyChain.swift in Sources */,
 				2BF873B52B31900700565F9D /* ReelsView.swift in Sources */,
+				2B5795F22B6798830013568F /* PostingViewModel.swift in Sources */,
 				2B47B1BF2B2CA48300589FD4 /* BirthView.swift in Sources */,
 				2B0C01F72B2C56FF00C21E19 /* LoginView.swift in Sources */,
 				2BC791D22B3C090800AA76FF /* PostingView.swift in Sources */,
