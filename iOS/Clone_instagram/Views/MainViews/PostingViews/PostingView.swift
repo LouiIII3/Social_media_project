@@ -46,7 +46,7 @@ struct PostingView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        model.send(image: selected, text: textfield)// 이미지와 글 전송
+                        model.send(image: selected, text: textfield) // 이미지와 글 전송
                         path.removeAll() // 처음으로 돌아가기
                     }, label: {
                         Text("공유")
