@@ -24,34 +24,9 @@ struct SettingsPrivacyView: View {
                     SettingView(setting: settings9, header: "내 주문 및 기부 캠페인")
                     SettingView(setting: settings10, header: "더 많은 정보 및 지원")
                     SettingView(setting: settings11, header: "로그인")
-//                    SettingView(header: "계정 추가")
-//                    SettingView(header: "로그인")
                 }
-
-//                HStack {
-//                    Button(action: {}, label: {
-//                        Text("계정 추가")
-//                            .foregroundStyle(Color.accentColor)
-//                        Spacer()
-//                    })
-//                }
-                
-//                HStack {
-//                    Button { 
-//                        do {
-//                            try KeyChain.delete()
-//                            isLogged.isLogged = false
-//                            print("isLogged 수정됌: \(isLogged.isLogged)")
-//                        } catch {
-//                            print("키체인 삭제 에러: \(error.localizedDescription)")
-//                            return
-//                        }
-//                    } label: {
-//                        Text("로그아웃")
-//                            .foregroundStyle(.red)
-//                    }
-//                    Spacer()
-//                }
+                .background(.defaultBackground)
+                .scrollContentBackground(.hidden)
         .navigationTitle("설정 및 개인정보")
     }
 }

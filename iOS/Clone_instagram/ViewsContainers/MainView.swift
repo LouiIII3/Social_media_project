@@ -50,8 +50,10 @@ struct MainView: View {
 
                     
                 }
-                .navigationDestination(for: String.self) { _ in
-                    SelectingImage(path: $path)
+                .navigationDestination(for: String.self) { num in
+                    if num == "1" {
+                        SelectingImage(path: $path)
+                    }
                 }
                 
             }//NAVIGATION

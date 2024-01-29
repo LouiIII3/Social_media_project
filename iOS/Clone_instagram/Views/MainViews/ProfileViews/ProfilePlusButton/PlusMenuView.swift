@@ -10,10 +10,10 @@ import SwiftUI
 struct PlusMenuView: View {
     let symbols = [["play.rectangle.fill", "릴스"], ["squareshape.split.3x3", "게시물"]]
     var body: some View {
+        Text("만들기")
+            .padding(.top)
         GeometryReader { geometry in
             VStack {
-                Text("만들기")
-                    .padding(.top)
                 
                 Divider()
                 VStack {
@@ -30,7 +30,6 @@ struct PlusMenuView: View {
                     .frame(width: geometry.size.width)
                     .padding(.leading)
                     
-                    
                     Divider()
                     
                     Button(action: {}, label: {
@@ -46,7 +45,7 @@ struct PlusMenuView: View {
                 }
                 
                 Spacer()
-            }
+            }.padding(.top)
             
             
         }

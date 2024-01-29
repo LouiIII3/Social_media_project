@@ -48,6 +48,7 @@ struct SettingMyAccountView: View {
                 Text("taewon").foregroundStyle(Color.accentColor)
             }.padding(.vertical)
         }
+        .listRowSeparator(.hidden)
     }
 }
 
@@ -68,34 +69,16 @@ struct SettingView: View {
         }
     }
     
-    func buttonColor(text: String) {
-        
+    func buttonColor(text: String) -> Color {
+        if text == "계정 추가" {
+            return Color.accentColor
+        } else if text == "로그아웃" {
+            return Color.red
+        } else {
+            return Color.defaultText
+        }
     }
     var body: some View {
-//        if header == "로그인" {
-//            Section {
-//                VStack {
-//                    HStack {
-//                        Button(action: {}, label: {
-//                            Text("계정 추가")
-//                                .foregroundStyle(Color.accentColor)
-//                        })
-//                        Spacer()
-//                    }
-//                    HStack {
-//                        Button {
-//                            logout()
-//                        } label: {
-//                            Text("로그아웃")
-//                                .foregroundStyle(.red)
-//                        }
-//                        Spacer()
-//                    }
-//                }
-//            } header: {
-//                Text(header)
-//            }
-//        } else {
             Section {
                 if let settings = setting {
                     ForEach(settings, id: \.self) { btn in
@@ -109,10 +92,7 @@ struct SettingView: View {
                                     if !btn.imageName.isEmpty {
                                         Image(systemName: btn.imageName).foregroundStyle(.defaultText)
                                     }
-                                    if btn.buttonText == "계정 추가" {
-                                        
-                                    }
-                                    Text(btn.buttonText).foregroundStyle(.defaultText)
+                                    Text(btn.buttonText).foregroundStyle(buttonColor(text: btn.buttonText))
                                     Spacer()
                                 }
                             }
@@ -125,7 +105,7 @@ struct SettingView: View {
                     Spacer()
                 }
             }
-//        }
+            .listRowSeparator(.hidden)
     }
 }
 

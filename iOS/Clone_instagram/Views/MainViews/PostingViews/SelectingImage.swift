@@ -147,6 +147,9 @@ struct SelectingImage: View {
             }
             
         })
+        .onAppear(perform: {
+            print("hi")
+        })
     }
 }
 
