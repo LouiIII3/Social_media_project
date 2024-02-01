@@ -1,7 +1,7 @@
 # Social_media_project
 
 1. UI(desgin):
-  - 
+  - We are going to create social media by referring to Instagram.
   - 
   - 
   - 
