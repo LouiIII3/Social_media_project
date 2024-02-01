@@ -59,7 +59,7 @@
 
 <br>
 <br>
-<h2>code description</h2>
+<h2>Code modification date</h2>
   - 2023.12.15: We have implemented the Instagram UI <br>
   - 2023.12.24: We have looked into creating posts <br>
   - 2024.01.06: We have implemented user registration <br>
