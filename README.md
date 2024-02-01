@@ -23,7 +23,7 @@
 
 - Springboot: 
   
-- Mysql:
+- Mysql: We used MySQL to store user information.
   
 - Tomcat Server: 
   
