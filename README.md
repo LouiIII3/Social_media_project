@@ -1,7 +1,7 @@
 # Social_media_project
 
   Reason for Creation:
-  - Utilizing diverse technology stacks: By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
+  - <b>Utilizing diverse technology stacks:<b> By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
   - Provide accurate criteria data regarding noise.
   - Provide information on a systematic management system to identify the source of the noise.
   - Simplify the reporting process to enhance convenience in managing noise within the dormitory.
