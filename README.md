@@ -41,7 +41,7 @@
   - Create post
 
 
-<hr>
+
 <br>
 <br>
 <h2>technology used</h2>
@@ -56,12 +56,17 @@
   
 - Other Materials:
 
-<hr>
+
 <br>
 <br>
 <h2>code description</h2>
   - 2023.12.15: We have implemented the Instagram UI <br>
   - 2023.12.24: We have looked into creating posts <br>
   - 2024.01.06: We have implemented user registration <br>
+  <div align="center">
+  <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/d337ff18-1737-4369-8ab9-23b661dceff2"/>
+  <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/adc5c39f-706f-4f86-9cbc-d6b038a20b69"/>
+  <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/aa314aa9-a234-434a-96f4-72599e364421"/>
+</div>
   - 2024.01.15: We have implemented login functionality <br>
   - 2024.01.25: We have modified the user registration form(userid, password, key1, birthdate, fullName, profeilePicture) <br>
