@@ -9,7 +9,9 @@
 <br>
 
 2. function:
-  - 
+  - Sign up
+  - Login
+  - Create post
 
 
 <hr>
