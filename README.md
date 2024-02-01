@@ -73,3 +73,13 @@
 </div>
   - 2024.01.15: We have implemented login functionality <br>
   - 2024.01.25: We have modified the user registration form(userid, password, key1, birthdate, fullName, profeilePicture) <br>
+
+
+
+
+
+  <br>
+  <br>
+  <h2>Added part</h2>
+  1. Token Implementation
+  - The reason for implementing tokens: Token-based registration is utilized to enhance authentication and security, facilitate stateless architecture, separate infrastructure components, improve user experience, and enable consistent authentication across applications.
