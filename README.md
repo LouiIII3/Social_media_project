@@ -1,9 +1,17 @@
 # Social_media_project
 
+<div style="text-align:center;">
+  <img style="width:40%; display:block; margin:0 auto;" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/d4d437dc-888b-4c63-bf61-300d01475d12"/>
+</div>
+
+
+
+
+
+
   <h2>Reason for Creation</h2>
   
-  - <b>Utilizing diverse technology stacks:</b>
-  By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
+  - <b>Utilizing diverse technology stacks:</b> By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
   - <b>Implementing comment and social features:</b> I created this to experience the integration work between backend and frontend by implementing social features such as comments, likes, and shares that promote user interaction.
   - <b>Practicing security and permission management:</b> I created this project, similar to Instagram, to gain an understanding of user authentication, permission granting, and data security aspects, as part of practicing security and authorization management.
 <br>
