@@ -21,15 +21,17 @@
 
 
 
-1. UI(desgin):
+<h2>UI(desgin)</h2>
+
   - We are going to create social media by referring to Instagram.
-  - 
-  - 
+  
+
   - 
 
 <br>
 
-2. function:
+<h2>function</h2>
+
   - Sign up
   - Login
   - Create post
