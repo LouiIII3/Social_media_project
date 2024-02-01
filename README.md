@@ -2,7 +2,7 @@
 
   Reason for Creation:
   - <b>Utilizing diverse technology stacks:</b> By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
-  - Provide accurate criteria data regarding noise.
+  - <b>Implementing comment and social features:</b> I created this to experience the integration work between backend and frontend by implementing social features such as comments, likes, and shares that promote user interaction.
   - Provide information on a systematic management system to identify the source of the noise.
   - Simplify the reporting process to enhance convenience in managing noise within the dormitory.
 
