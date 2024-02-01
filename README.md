@@ -82,4 +82,6 @@
   <br>
   <h2>Added part</h2>
   1. Token Implementation
-  - The reason for implementing tokens: Token-based registration is utilized to enhance authentication and security, facilitate stateless architecture, separate infrastructure components, improve user experience, and enable consistent authentication across applications.
+  
+  - The reason for implementing tokens: 
+Token-based registration is utilized to enhance authentication and security, facilitate stateless architecture, separate infrastructure components, improve user experience, and enable consistent authentication across applications.
