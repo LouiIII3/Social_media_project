@@ -1,58 +1,89 @@
-# Social Media Project
+# Social_media_project
 
 <div align="center">
   <img style="width:40%; display:block; margin:0 auto;" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/d4d437dc-888b-4c63-bf61-300d01475d12"/>
 </div>
 
-## Reason for Creation
 
-- **Utilizing Diverse Technology Stacks:** By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
+
+
+
+
+  <h2>Reason for Creation</h2>
   
-- **Implementing Comment and Social Features:** I created this to experience the integration work between backend and frontend by implementing social features such as comments, likes, and shares that promote user interaction.
+  - <b>Utilizing diverse technology stacks:</b> By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
+    
+  - <b>Implementing comment and social features:</b> I created this to experience the integration work between backend and frontend by implementing social features such as comments, likes, and shares that promote user interaction.
+    
+  - <b>Practicing security and permission management:</b> I created this project, similar to Instagram, to gain an understanding of user authentication, permission granting, and data security aspects, as part of practicing security and authorization management.
+    
+<br>
+
+
+
+
+
+
+<h2>UI(desgin)</h2>
+
+  - We are going to create social media by referring to Instagram.
   
-- **Practicing Security and Permission Management:** I created this project, similar to Instagram, to gain an understanding of user authentication, permission granting, and data security aspects, as part of practicing security and authorization management.
 
-## UI Design
-
-- We are going to create social media by referring to Instagram.
-
-### Implementation Pictures
+  - Implementation pictures
 <div align="center">
   <img width="20%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/0850c060-31ec-4eeb-a99a-bea4dc742a4d"/>
   <img width="20%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/0850c060-31ec-4eeb-a99a-bea4dc742a4d"/>
 </div>
 
-## Functions
+<br>
 
-- Sign up
-- Login
-- Create post
+<h2>function</h2>
 
-## Technologies Used
+  - Sign up
+  - Login
+  - Create post
 
-- SwiftUI
-- Spring Boot
-- MySQL: Used for storing user information.
-- Tomcat Server
-- Other Materials
 
-## Code Modification Dates
 
-- **2023.12.15:** Implemented Instagram UI.
-- **2023.12.24:** Investigated post creation.
-- **2024.01.06:** Implemented user registration.
+<br>
+<br>
+<h2>technology used</h2>
+
+- SwiftUI: 
+
+- Springboot: 
+  
+- Mysql: We used MySQL to store user information.
+  
+- Tomcat Server: 
+  
+- Other Materials:
+
+
+<br>
+<br>
+<h2>Code modification date</h2>
+  - 2023.12.15: We have implemented the Instagram UI <br>
+  - 2023.12.24: We have looked into creating posts <br>
+  - 2024.01.06: We have implemented user registration <br>
   <div align="center">
   <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/d337ff18-1737-4369-8ab9-23b661dceff2"/>
   <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/adc5c39f-706f-4f86-9cbc-d6b038a20b69"/>
   <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/aa314aa9-a234-434a-96f4-72599e364421"/>
 </div>
-- **2024.01.15:** Implemented login functionality.
-- **2024.01.25:** Modified the user registration form (userid, password, key1, birthdate, fullName, profilePicture).
-- **2024.02.11:** Updated post creation.
-- **2024.02.26:** Added a feature to edit posts.
+  - 2024.01.15: We have implemented login functionality <br>
+  - 2024.01.25: We have modified the user registration form(userid, password, key1, birthdate, fullName, profeilePicture) <br>
+  - 2024.02.11: We updated the post_create <br>
+  - 2024.02.26: We have added a part to edit the post.
 
-## Added Part
 
-### Token Implementation
 
-- **Reason for Implementing Tokens:** Token-based registration enhances authentication and security, facilitates stateless architecture, separates infrastructure components, improves user experience, and enables consistent authentication across applications.
+
+
+  <br>
+  <br>
+  <h2>Added part</h2>
+  1. Token Implementation
+  
+  - The reason for implementing tokens: 
+Token-based registration is utilized to enhance authentication and security, facilitate stateless architecture, separate infrastructure components, improve user experience, and enable consistent authentication across applications.
