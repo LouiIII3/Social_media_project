@@ -73,7 +73,7 @@
 </div>
   - 2024.01.15: We have implemented login functionality <br>
   - 2024.01.25: We have modified the user registration form(userid, password, key1, birthdate, fullName, profeilePicture) <br>
-  - 2024.02.11: We updated the post_create
+  - 2024.02.11: We updated the post_create <br>
   - 2024.02.26: We have added a part to edit the post.
 
 
