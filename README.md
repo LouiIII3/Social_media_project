@@ -73,9 +73,9 @@
   <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/adc5c39f-706f-4f86-9cbc-d6b038a20b69"/>
   <img width="15%" src="https://github.com/LouiIII3/Social_media_project/assets/119919129/aa314aa9-a234-434a-96f4-72599e364421"/>
 </div>
-  - 2024.01.15: We have implemented login functionality <br>
+  - 2024.01.15: We have implemented login functionality. <br>
   - 2024.01.25: We have modified the user registration form(userid, password, key1, birthdate, fullName, profeilePicture) <br>
-  - 2024.02.11: We updated the post_create <br>
+  - 2024.02.11: We updated the post_create. <br>
   - 2024.02.26: We have added a part to edit the post.
 
 
