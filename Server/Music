@@ -2,6 +2,10 @@ package com.example.social.music;
 
 import jakarta.persistence.*;
 
+
+
+
+//DTO 연결 예정
 @Entity
 public class Music {
 
