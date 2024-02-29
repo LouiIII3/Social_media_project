@@ -85,7 +85,15 @@
   <br>
   <br>
   <h2>Added part</h2>
-  1. Token Implementation
+1. Token Implementation
   
   - The reason for implementing tokens: 
 Token-based registration is utilized to enhance authentication and security, facilitate stateless architecture, separate infrastructure components, improve user experience, and enable consistent authentication across applications.
+
+1-2. Direct Implementation of Login and Sign-up Functionality
+
+   - The reason for directly implementing the login and sign-up functionalities:
+   I opted to implement the login and sign-up functionalities directly, without relying on frameworks like Spring Security, to deepen my understanding of the underlying concepts and operational principles.
+
+   - By exploring various security and authentication techniques firsthand, I aimed to broaden my understanding of different technologies, contributing to making better decisions regarding technology stacks.
+  
