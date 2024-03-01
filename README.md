@@ -57,7 +57,9 @@
   
 - Mysql: We used MySQL to store user information.
   
-- Tomcat Server: 
+- Tomcat Server:
+
+- AWS: EC2,Route53,S3
   
 - Other Materials:
 
