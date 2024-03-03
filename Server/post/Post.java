@@ -3,6 +3,7 @@ package com.example.social.post;
 import jakarta.persistence.*;
 import com.example.social.media.User;
 
+//v2 - connect Dto
 @Entity
 @Table(name = "post") // Specify the table name if different from class name
 public class Post {
