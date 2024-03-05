@@ -1,18 +1,13 @@
 package com.example.social.music;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.social.media.JwtTokenProvider;
-
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/audio")
 public class MusicController {
 
     @Autowired
@@ -21,37 +16,65 @@ public class MusicController {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
-    @GetMapping("/audio")
+    @GetMapping("/play")
     public ResponseEntity<?> getMusicByHeartRate(@RequestHeader("Authorization") String token,
-                                                        @RequestParam("heartRate") int heartRate) {
+                                                 @RequestParam("heartRate") int heartRate) {
         try {
             if (!jwtTokenProvider.validateToken(token)) {
                 throw new Exception("유효하지 않은 토큰입니다.");
             }
 
-            List<Music> musicList = musicService.getMusicByHeartRate(heartRate);
-            if (musicList.isEmpty()) {
+            Music music = musicService.getMusicByHeartRate(heartRate);
+
+            if (music == null) {
                 return ResponseEntity.notFound().build();
             }
 
-            MusicDTO musicDTO = convertToDTO(musicList.get(0)); // 간단하게 첫 번째 음악만 반환
-
-            return ResponseEntity.ok(musicDTO);
+            return ResponseEntity.ok(music);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
 
-    private MusicDTO convertToDTO(Music music) {
-        MusicDTO dto = new MusicDTO();
-        dto.setTitle(music.getTitle());
-        dto.setArtist(music.getArtist());
-        dto.setAlbumUrl(music.getAlbumUrl());
-        dto.setFilePath(music.getFilePath());
-        dto.setTempo(music.getTempo());
-        return dto;
+    @GetMapping("/next")
+    public ResponseEntity<?> playNextSong(@RequestHeader("Authorization") String token) {
+        try {
+            if (!jwtTokenProvider.validateToken(token)) {
+                throw new Exception("유효하지 않은 토큰입니다.");
+            }
+
+            Music nextSong = musicService.getNextSong();
+
+            if (nextSong == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            return ResponseEntity.ok(nextSong);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/previous")
+    public ResponseEntity<?> playPreviousSong(@RequestHeader("Authorization") String token) {
+        try {
+            if (!jwtTokenProvider.validateToken(token)) {
+                throw new Exception("유효하지 않은 토큰입니다.");
+            }
+
+            Music previousSong = musicService.getPreviousSong();
+
+            if (previousSong == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            return ResponseEntity.ok(previousSong);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        }
     }
 }
+
 
 
 
