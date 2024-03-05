@@ -58,4 +58,10 @@ public class MusicService {
             return "fast";
         }
     }
+
+    public List<Music> getAllMusic() {
+        return musicRepository.findAll();
+    }
 }
+
+
