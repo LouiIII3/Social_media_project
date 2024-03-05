@@ -1,0 +1,27 @@
+package com.example.social.music;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class MusicService {
+
+    @Autowired
+    private MusicRepository musicRepository;
+
+    public List<Music> getMusicByHeartRate(int heartRate) {
+        String tempo;
+        if (heartRate >= 60 && heartRate <= 90) {
+            tempo = "slow";
+        } else if (heartRate > 90 && heartRate <= 110) {
+            tempo = "normal";
+        } else {
+            tempo = "fast";
+        }
+
+        // 해당 심박수에 맞는 tempo 값을 가진 음악을 MusicRepository에서 가져옵니다.
+        return musicRepository.findByTempo(tempo);
+    }
+}
