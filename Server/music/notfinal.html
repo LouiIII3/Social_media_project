@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Music Player</h1>
+
+<div id="musicInfo">
+    <h2>음악 정보</h2>
+    <p id="title">제목: </p>
+    <p id="artist">가수: </p>
+    <img id="albumUrl" src="" alt="앨범 사진" width="200" height="200">
+</div>
+
+<button id="playByHeartRate">심박수에 따른 음악 재생</button>
+<input type="text" id="heartRate" placeholder="심박수 입력">
+
+<button id="playNext">다음 곡 재생</button>
+<button id="playPrevious">이전 곡 재생</button>
+<button id="getAllMusic">모든 음악 가져오기</button>
+
+<audio id="audioPlayer" controls style="display: none;">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    $(document).ready(function() {
+        $("#playByHeartRate").click(function() {
+            var heartRate = $("#heartRate").val();
+            $.ajax({
+                url: "/audio/play?heartRate=" + heartRate,
+                type: "GET",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Authorization", "1");
+                },
+                success: function(response) {
+                    $("#title").text("제목: " + response.title);
+                    $("#artist").text("가수: " + response.artist);
+                    $("#albumUrl").attr("src", response.albumUrl);
+                    $("#audioPlayer").attr("src", response.filePath);
+                    document.getElementById("audioPlayer").play();
+                },
+                error: function(xhr, status, error) {
+                    alert("에러: " + xhr.responseText);
+                }
+            });
+        });
+
+        $("#playNext").click(function() {
+            $.ajax({
+                url: "/audio/next",
+                type: "GET",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Authorization", "1");
+                },
+                success: function(response) {
+                    $("#title").text("제목: " + response.title);
+                    $("#artist").text("가수: " + response.artist);
+                    $("#albumUrl").attr("src", response.albumUrl);
+                    $("#audioPlayer").attr("src", response.filePath);
+                    document.getElementById("audioPlayer").play();
+                },
+                error: function(xhr, status, error) {
+                    alert("에러: " + xhr.responseText);
+                }
+            });
+        });
+
+        $("#playPrevious").click(function() {
+            $.ajax({
+                url: "/audio/previous",
+                type: "GET",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Authorization", "1");
+                },
+                success: function(response) {
+                    $("#title").text("제목: " + response.title);
+                    $("#artist").text("가수: " + response.artist);
+                    $("#albumUrl").attr("src", response.albumUrl);
+                    $("#audioPlayer").attr("src", response.filePath);
+                    document.getElementById("audioPlayer").play();
+                },
+                error: function(xhr, status, error) {
+                    alert("에러: " + xhr.responseText);
+                }
+            });
+        });
+
+        $("#getAllMusic").click(function() {
+            $.ajax({
+                url: "/audio/all",
+                type: "GET",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Authorization", "1");
+                },
+                success: function(response) {
+                    var allMusicHTML = "";
+                    $.each(response, function(index, music) {
+                        allMusicHTML += "<p>제목: " + music.title + ", 가수: " + music.artist + "</p>";
+                    });
+                    $("#musicInfo").html(allMusicHTML);
+                },
+                error: function(xhr, status, error) {
+                    alert("에러: " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
