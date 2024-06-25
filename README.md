@@ -10,7 +10,6 @@
 [English](README_EN.md) | [한국어](README_KR.md)
 
 
-
   <h2>Reason for Creation</h2>
   
   - <b>Utilizing diverse technology stacks:</b> By integrating various technologies such as app development, backend, and databases, the process of completing a project allows for the enhancement of skills in using and integrating diverse technology stacks.
